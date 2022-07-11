@@ -1,0 +1,90 @@
+/*  MODAL WINDOW ==================================================================================================== */
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 20;
+    transition: .3s all;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    width: calc(100% - 2rem);
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 1rem);
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+    text-align: center;
+    padding: 30px;
+    margin: 1rem;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: 0.3s all;
+
+    &__title {
+        font-family: "Core Sans C 75";
+        font-size: 2rem;
+        color: #000000;
+    }
+
+    &__subtitle {
+        width: 360px;
+        margin: 1rem auto;
+        font-family: "Core Sans C 45";
+        font-size: 0.8rem;
+        color: #646464;
+        line-height: 1.2rem;
+    }
+    &__content {
+        margin: 2rem 0 0;
+    }
+    &__alert {
+        display: inline-block;
+        padding: 1.4rem 0 1.5rem 2rem;
+        margin: -2rem 0 0;
+        font-size: 15px;
+        background-image: url('/images/check_icon.png');
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        background-position: left calc(50% - 4px);
+    }
+    &__close {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        fill: #444;
+        cursor: pointer;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .modal {
+        padding: 1rem;
+
+        &__title {
+            font-size: 1.5rem;
+            margin: 0.25rem 0 0;
+        }
+    }
+}
