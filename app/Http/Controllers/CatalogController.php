@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers;
+use App\Models\Page;
 use App\Models\Profile;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -176,6 +177,8 @@ class CatalogController extends Controller
         $section_id = 2;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
 
+        $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
+
         if ($request->ajax()) {
             return view('components.profiles.item_list_ajax', ['profiles' => $profiles]);
         }
@@ -184,7 +187,9 @@ class CatalogController extends Controller
             'profiles' => $profiles,
             'section_id' => $section_id,
             'heading' => 'Индивидуалки Москвы',
-            'title' => 'Индивидуалки'
+            'title' => 'Индивидуалки',
+            'page_title' => $page->meta->title,
+            'page_description'=> $page->meta->description
         ]);
     }
 

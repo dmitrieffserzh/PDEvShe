@@ -72,4 +72,9 @@ class Profile extends Model {
     public function testimonials() {
         return $this->hasMany( Testimonial::class );
     }
+
+
+    public function meta(){
+        return $this->morphOne(Meta::class, 'metable');
+    }
 }

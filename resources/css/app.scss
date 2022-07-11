@@ -1167,6 +1167,8 @@ body {
   box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
 
   &__slide {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 400px !important;
     //background-image: url("/images/slide-default.png");
@@ -1176,7 +1178,7 @@ body {
   }
 
   &__title {
-    margin: 11rem 0 0 4rem;
+    margin: 0 0 0 4rem;
     font-family: "Core Sans C 75";
     font-size: 38px;
     line-height: 52px;
@@ -1379,10 +1381,11 @@ body {
       background: #f8f8f8;
       display: flex;
       align-items: center;
+      justify-content: center;
 
       & img {
         //width: 100%;
-        width: 130%;
+        height: 100%;
       }
     }
   }

@@ -27,4 +27,10 @@ class Page extends Model {
     public function getRouteKeyName() {
         return 'slug';
     }
+
+
+    public function meta()
+    {
+        return $this->morphOne(Meta::class, 'metable');
+    }
 }

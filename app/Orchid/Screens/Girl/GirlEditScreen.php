@@ -141,6 +141,14 @@ class GirlEditScreen extends Screen
         return [
             Layout::columns([
                 Layout::rows([
+                    Input::make( 'profile.meta.title' )
+                        ->title( 'Meta-title' )
+                        ->placeholder( '' )
+                        ->style( 'width: 100%;' ),
+                    TextArea::make('profile.meta.description')
+                        ->title('Meta-description')
+                        ->placeholder( '' ),
+
                     Group::make([
                         CheckBox::make('profile.active')
                             ->placeholder('Активировать')
@@ -391,6 +399,7 @@ class GirlEditScreen extends Screen
         $profile->slug = Str::slug($profile->name . '-' . $profile->id);
         $profile->save();
 
+        $profile->meta()->create($request->profile['meta']);
         $profile->places()->sync($request->profile['places']);
         $profile->stations()->sync($request->profile['stations']);
         $profile->prices()->create($request->profile['prices']);
@@ -422,6 +431,11 @@ class GirlEditScreen extends Screen
     {
         $profile->updated_at = Carbon::now();
         $profile->update($request->profile);
+        if($profile->meta()->exists())
+            $profile->meta()->update($request->profile['meta']);
+        else
+            $profile->meta()->create($request->profile['meta']);
+
 
         $profile->places()->sync($request->profile['places']);
 

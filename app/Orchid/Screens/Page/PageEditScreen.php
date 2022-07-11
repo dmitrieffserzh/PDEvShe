@@ -9,6 +9,7 @@ use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -78,6 +79,15 @@ class PageEditScreen extends Screen {
                          ->title( 'Содержимое статьи' )
                          ->placeholder( 'Введите содержимое статьи' )
                          ->required(),
+
+                    Input::make( 'page.meta.title' )
+                        ->title( 'Meta-title' )
+                        ->placeholder( '' )
+                        ->style( 'width: 100%;' ),
+                    TextArea::make('page.meta.description')
+                        ->title('Meta-description')
+                        ->placeholder( '' ),
+
                     Group::make( [
                         Button::make( 'Отменить' )
                               ->method( 'cancel' )
@@ -101,6 +111,8 @@ class PageEditScreen extends Screen {
 
     public function create( Request $request ) {
         $page = Page::create( $request->page );
+        $page->meta()->create($request->page['meta']);
+
         if ( $page ) {
 
             Toast::success( 'Страница успешно сохранена' );
@@ -111,6 +123,12 @@ class PageEditScreen extends Screen {
 
     public function update( Page $page, Request $request ) {
         $page->updateOrFail( $request->page );
+        if($page->meta()->exists())
+            $page->meta()->update($request->page['meta']);
+        else
+            $page->meta()->create($request->page['meta']);
+
+
         Toast::success( 'Страница успешно обновлена' );
 
         return redirect()->route( 'platform.pages' );

@@ -10,6 +10,7 @@ use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -60,6 +61,9 @@ class PostEditScreen extends Screen {
         return [
             Layout::columns( [
                 Layout::rows( [
+
+
+
                     CheckBox::make( 'post.active' )
                             ->title( 'Опубликовать' )
                             ->placeholder( 'Да' )
@@ -84,6 +88,17 @@ class PostEditScreen extends Screen {
                          ->title( 'Содержимое статьи' )
                          ->placeholder( 'Введите содержимое статьи' )
                          ->required(),
+
+
+                    Input::make( 'post.meta.title' )
+                        ->title( 'Meta-title' )
+                        ->placeholder( '' )
+                        ->style( 'width: 100%;' ),
+                    TextArea::make('post.meta.description')
+                        ->title('Meta-description')
+                        ->placeholder( '' ),
+
+
                     Group::make( [
                         Button::make( 'Отменить' )
                               ->method( 'cancel' )
@@ -107,6 +122,7 @@ class PostEditScreen extends Screen {
 
     public function create( Request $request ) {
         $post = Post::create( $request->post );
+        $post->meta()->create($request->page['meta']);
         if ( $post ) {
 
             Toast::success( 'Статья успешно сохранена' );
@@ -117,6 +133,11 @@ class PostEditScreen extends Screen {
 
     public function update( Post $post, Request $request ) {
         $post->updateOrFail( $request->post );
+        if($post->meta()->exists())
+            $post->meta()->update($request->post['meta']);
+        else
+            $post->meta()->create($request->post['meta']);
+
         Toast::success( 'Статья успешно обновлена' );
 
         return redirect()->route( 'platform.posts' );

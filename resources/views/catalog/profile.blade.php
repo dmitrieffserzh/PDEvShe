@@ -1,4 +1,8 @@
 @extends('app')
+
+@section('title', $profile->meta->title ?? '')
+@section('description', $profile->meta->description ?? '')
+
 @section('breadcrumbs', Diglactic\Breadcrumbs\Breadcrumbs::render('catalog.profile', $profile))
 @section('h1', $heading ?? 'Профиль')
 @section('profile-meta')
