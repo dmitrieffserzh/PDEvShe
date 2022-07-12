@@ -54,7 +54,7 @@ class PlatformProvider extends OrchidServiceProvider {
                 ->icon( 'bubbles' )
                 ->route( 'platform.testimonials' ),
 	        Menu::make( 'Станции метро' )
-	            ->icon( 'social-steam' )
+	            ->icon( 'map' )
 	            ->route( 'platform.stations' ),
             Menu::make( 'Слайдер на главной' )
                 ->icon( 'picture' )

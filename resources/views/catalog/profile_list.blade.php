@@ -1,7 +1,7 @@
 @extends('app')
 
-@section('title', $page_title ?? '')
-@section('description', $page_description ?? '')
+@section('title', $page->meta->title ?? '')
+@section('description', $page->meta->description ?? '')
 
 @section('breadcrumbs', Diglactic\Breadcrumbs\Breadcrumbs::render('catalog.'.Helpers::getGirlSectionUrlValue($section_id), $title))
 @section('h1', $heading ?? 'Каталог девушек')
@@ -14,4 +14,12 @@
     @endforeach
     </div>
     {{ $profiles->links('components.button-more') }}
+
+
+    @if( $page->tile ||  $page->content)
+        <div class="page-content">
+            <h2>{{$page->title}}</h2>
+            {!! $page->content !!}
+        </div>
+    @endif
 @endsection

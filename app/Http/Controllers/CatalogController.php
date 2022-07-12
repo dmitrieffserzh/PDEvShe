@@ -170,8 +170,7 @@ class CatalogController extends Controller
             'section_id' => $section_id,
             'heading' => 'Элитные девушки Москвы',
             'title' => 'Элитные',
-            'page_title' => $page->meta->title,
-            'page_description'=> $page->meta->description
+            'page' => $page
         ]);
     }
 
@@ -190,8 +189,7 @@ class CatalogController extends Controller
             'section_id' => $section_id,
             'heading' => 'Индивидуалки Москвы',
             'title' => 'Индивидуалки',
-            'page_title' => $page->meta->title,
-            'page_description'=> $page->meta->description
+            'page' => $page
         ]);
     }
 
@@ -211,8 +209,7 @@ class CatalogController extends Controller
             'section_id' => $section_id,
             'heading' => 'Дешевые проститутки Москвы',
             'title' => 'Дешевые',
-            'page_title' => $page->meta->title,
-            'page_description'=> $page->meta->description
+            'page' => $page
         ]);
     }
 
@@ -232,8 +229,7 @@ class CatalogController extends Controller
             'section_id' => $section_id,
             'heading' => 'БДСМ девушки Москвы',
             'title' => 'БДСМ',
-            'page_title' => $page->meta->title,
-            'page_description'=> $page->meta->description
+            'page' => $page
         ]);
     }
 
@@ -253,8 +249,7 @@ class CatalogController extends Controller
             'section_id' => $section_id,
             'heading' => 'Частные объявления массажисток Москвы',
             'title' => 'Массажистки',
-            'page_title' => $page->meta->title,
-            'page_description'=> $page->meta->description
+            'page' => $page
         ]);
     }
 

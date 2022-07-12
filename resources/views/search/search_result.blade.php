@@ -16,4 +16,11 @@
             <h4 style="padding: 0 .5rem;">По вашему запросу ничего не найдено :(</h4>
         @endif
     </div>
+
+    @if( $station->tile ||  $station->content)
+    <div class="page-content">
+       <h2>{{$station->title}}</h2>
+        {!! $station->content !!}
+    </div>
+    @endif
 @endsection
