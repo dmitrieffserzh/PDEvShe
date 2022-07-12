@@ -37,31 +37,17 @@
          array_push( $arrServices, [ 'title' => $item->block_title, 'services' => $servicesList ] );
 
 @endphp
-
-{{--<div class="block">--}}
-{{--    <div class="block__title">цена:</div>--}}
-{{--    <div class="block__input">--}}
-{{--        <input type="number" name="filter[price][min]" value="{{ Price::min('day_one_hour_in') }}" placeholder="от {{ Price::min('day_one_hour_in') }}">--}}
-{{--        <span>от</span>--}}
-{{--    </div>--}}
-{{--    <div class="block__input">--}}
-{{--        <input type="number" name="filter[price][max]" value="{{ Price::max('day_one_hour_in') }}" placeholder="до {{ Price::max('day_one_hour_in') }}">--}}
-{{--        <span>до</span>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
 <form id="filter" class="filter">
     <input type="hidden" name="filter[section]" value="{{ $section_id }}">
     <div class="filter__block">
         <div class="block">
             <div class="block__title">Возраст:</div>
             <div class="block__input">
-                <input type="number" name="filter[age][min]" data-value="{{ Arr::first(Helpers::getGirlAge()) }}" value="" placeholder="от {{ Arr::first(Helpers::getGirlAge()) }}">
+                <input type="number" name="filter[age][min]" value="" placeholder="от {{ Arr::first(Helpers::getGirlAge()) }}">
                 <span>от</span>
             </div>
             <div class="block__input">
-                <input type="number" name="filter[age][max]" data-value="{{ Arr::last(Helpers::getGirlAge()) }}" value="" placeholder="до {{ Arr::last(Helpers::getGirlAge()) }}">
+                <input type="number" name="filter[age][max]" value="" placeholder="до {{ Arr::last(Helpers::getGirlAge()) }}">
                 <span>до</span>
             </div>
         </div>
@@ -70,11 +56,11 @@
         <div class="block">
             <div class="block__title">Рост:</div>
             <div class="block__input">
-                <input type="number" name="filter[height][min]" data-value="{{ Profile::min('height') }}" value="" placeholder="от {{ Profile::min('height') }}">
+                <input type="number" name="filter[height][min]" value="" placeholder="от {{ Profile::min('height') }}">
                 <span>от</span>
             </div>
             <div class="block__input">
-                <input type="number" name="filter[height][max]" data-value="{{ Profile::max('height') }}" value="" placeholder="до {{ Profile::max('height') }}">
+                <input type="number" name="filter[height][max]" value="" placeholder="до {{ Profile::max('height') }}">
                 <span>до</span>
             </div>
         </div>
@@ -83,11 +69,11 @@
         <div class="block">
             <div class="block__title">Вес:</div>
             <div class="block__input">
-                <input type="number" name="filter[weight][min]" data-value="{{ Profile::min('weight') }}" value="" placeholder="от {{ Profile::min('weight') }}">
+                <input type="number" name="filter[weight][min]" value="" placeholder="от {{ Profile::min('weight') }}">
                 <span>от</span>
             </div>
             <div class="block__input">
-                <input type="number" name="filter[weight][max]" data-value="{ Profile::max('weight') }}" value="{" placeholder="до {{ Profile::max('weight') }}">
+                <input type="number" name="filter[weight][max]" value="" placeholder="до {{ Profile::max('weight') }}">
                 <span>до</span>
             </div>
         </div>
@@ -96,13 +82,11 @@
         <div class="block">
             <div class="block__title">Размер груди:</div>
             <div class="block__input">
-                <input type="number" name="filter[breast_size][min]" data-value="{{ Arr::first(Helpers::getGirlBreast()) }}" value=""
-                       placeholder="от {{ Arr::first(Helpers::getGirlBreast()) }}">
+                <input type="number" name="filter[breast_size][min]" value="" placeholder="от {{ Arr::first(Helpers::getGirlBreast()) }}">
                 <span>от</span>
             </div>
             <div class="block__input">
-                <input type="number" name="filter[breast_size][max]" data-value="{{ Arr::last(Helpers::getGirlBreast()) }}" value=""
-                       placeholder="до {{ Arr::last(Helpers::getGirlBreast()) }}">
+                <input type="number" name="filter[breast_size][max]" value="" placeholder="до {{ Arr::last(Helpers::getGirlBreast()) }}">
                 <span>до</span>
             </div>
         </div>
