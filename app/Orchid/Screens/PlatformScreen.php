@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
+use App\Models\Profile;
+use App\Models\Testimonial;
+use App\Orchid\Layouts\Girl\GirlListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
@@ -17,7 +20,17 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+
+        $allProfilesCount = Profile::all()->count();
+        $profiles = Profile::where('active', 1)->limit(15)->get();
+        $activeProfile = Profile::where('active', 1)->get()->count();
+        $allTestimonials = Testimonial::all()->count();
+        return [
+            'allProfilesCount' => $allProfilesCount,
+            'profile' => $profiles,
+            'activeProfiles' => $activeProfile,
+            'allTestimonials' => $allTestimonials
+        ];
     }
 
     /**
@@ -27,7 +40,7 @@ class PlatformScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Get Started';
+        return 'Панель управления';
     }
 
     /**
@@ -37,7 +50,7 @@ class PlatformScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Welcome to your Orchid application.';
+        return 'Добро пожаловать в панель управления сайтом INTIMDOSUG.PW';
     }
 
     /**
@@ -48,17 +61,9 @@ class PlatformScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Website')
-                ->href('http://orchid.software')
+            Link::make('Перейти на сайт')
+                ->href('/')
                 ->icon('globe-alt'),
-
-            Link::make('Documentation')
-                ->href('https://orchid.software/en/docs')
-                ->icon('docs'),
-
-            Link::make('GitHub')
-                ->href('https://github.com/orchidsoftware/platform')
-                ->icon('social-github'),
         ];
     }
 
@@ -70,6 +75,21 @@ class PlatformScreen extends Screen
     public function layout(): iterable
     {
         return [
+
+            Layout::columns([
+                Layout::view('platform.count-block'),
+                Layout::view('platform.active-block'),
+                Layout::view('platform.testimonials-block'),
+            ]),
+
+            Layout::rows([
+
+            ])->title('dsdsds'),
+
+            GirlListLayout::class,
+
+
+
             Layout::view('platform::partials.welcome'),
         ];
     }

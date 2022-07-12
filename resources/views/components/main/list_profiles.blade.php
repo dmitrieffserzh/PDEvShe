@@ -1,6 +1,10 @@
 <section class="section">
     <div class="section__container">
-        <h2 class="section__title">{{ $title }}</h2>
+        @if(isset($h1))
+            <h1 class="section__title">{{ $title }}</h1>
+        @else
+            <h2 class="section__title">{{ $title }}</h2>
+        @endif
         <div class="profiles-list">
         @foreach($items as $item)
             @include('components.profiles.item_list', ['item' => $item])

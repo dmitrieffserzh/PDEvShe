@@ -76,7 +76,7 @@
     </div>
 
     @if(isset($eliteGirls))
-        @include('components.main.list_profiles', ['title'=> 'Элитные девушки', 'items' => $eliteGirls, 'link' => route('catalog.elite')])
+        @include('components.main.list_profiles', ['title'=> 'Элитные девушки', 'items' => $eliteGirls, 'link' => route('catalog.elite'), 'h1' => true])
     @endif
 
     @if(isset($newGirls))
