@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\SitemapController;
 
 
 /*
@@ -22,6 +23,13 @@ use App\Http\Controllers\TestimonialController;
 */
 require __DIR__.'/auth.php';
 Route::get( '/',                                                [ MainController::class, 'index' ]                      )->name( 'main' );
+
+// SITEMAPS
+Route::get('sitemap',                                          [ SitemapController::class, 'index' ]                   )->name( 'sitemap.index' );
+Route::get('sitemap/articles',                                 [ SitemapController::class, 'articles' ]                )->name( 'sitemap.articles' );
+Route::get('sitemap/pages',                                    [ SitemapController::class, 'pages' ]                   )->name( 'sitemap.pages' );
+Route::get('sitemap/profiles',                                 [ SitemapController::class, 'profiles' ]                )->name( 'sitemap.profiles' );
+
 
 // SEARCH
 Route::get(  'search',                                          [ SearchController::class, 'search' ]                   )->name( 'search' );
@@ -55,7 +63,7 @@ Route::match(['get', 'post'], 'cheap',                          [ CatalogControl
 Route::match(['get', 'post'], 'bdsm',                           [ CatalogController::class, 'showBdsmCatalog' ]         )->name( 'catalog.bdsm' );
 Route::match(['get', 'post'], 'masseuses',                      [ CatalogController::class, 'showMasseusesCatalog' ]    )->name( 'catalog.masseuses' );
 
-Route::post('filter',                                           [ CatalogController::class, 'filter' ] )->name( 'catalog.filter' );
+Route::post('filter',                                           [ CatalogController::class, 'filter' ]                  )->name( 'catalog.filter' );
 Route::post('add-testimonial',                                  [ CatalogController::class, 'addTestimonial' ]          )->name( 'catalog.add-testimonial' );
 
 Route::get( '{section}/{slug}',                                 [ CatalogController::class, 'showProfileCatalog' ]      )->name( 'catalog.profile' );
