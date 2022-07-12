@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="8a0232f5-8a8b-4c55-bfc7-756d77ac3121" name="PDevShe" url="http://intimdosug.pw">
+      <webServer id="8a0232f5-8a8b-4c55-bfc7-756d77ac3121" name="PDevShe (project level)" url="http://intimdosug.pw">
         <fileTransfer rootFolder="/home/admin/web/intimdosug.pw/public_html" accessType="SFTP" host="intimdosug.pw" port="22" sshConfigId="b6f1c9da-31f7-4d7a-b20c-ddb91065eccc" sshConfig="admin@intimdosug.pw:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />

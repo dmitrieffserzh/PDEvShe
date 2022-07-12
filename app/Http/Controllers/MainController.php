@@ -36,7 +36,9 @@ class MainController extends Controller
             'individualGirls' => $individualGirls,
             'topGirls' => $topGirls,
             'cheapGirls' => $cheapGirls,
-            'masseusesGirls' => $masseusesGirls
+            'masseusesGirls' => $masseusesGirls,
+			'title' => 'Элитные девушки и индивидуалки Москвы',
+	        'description' => 'Красивые и привлекательные девушки с радостью проведут с вами вечер или скрасят ваш досуг и увлечения'
         ]);
     }
 

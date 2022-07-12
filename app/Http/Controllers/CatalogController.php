@@ -159,6 +159,7 @@ class CatalogController extends Controller
 
         $section_id = 1;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
+	    $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
 
         if ($request->ajax()) {
             return view('components.profiles.item_list_ajax', ['profiles' => $profiles]);
@@ -168,7 +169,9 @@ class CatalogController extends Controller
             'profiles' => $profiles,
             'section_id' => $section_id,
             'heading' => 'Элитные девушки Москвы',
-            'title' => 'Элитные'
+            'title' => 'Элитные',
+            'page_title' => $page->meta->title,
+            'page_description'=> $page->meta->description
         ]);
     }
 
@@ -176,7 +179,6 @@ class CatalogController extends Controller
     {
         $section_id = 2;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
-
         $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
 
         if ($request->ajax()) {
@@ -198,6 +200,7 @@ class CatalogController extends Controller
     {
         $section_id = 3;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
+	    $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
 
         if ($request->ajax()) {
             return view('components.profiles.item_list_ajax', ['profiles' => $profiles]);
@@ -207,7 +210,9 @@ class CatalogController extends Controller
             'profiles' => $profiles,
             'section_id' => $section_id,
             'heading' => 'Дешевые проститутки Москвы',
-            'title' => 'Дешевые'
+            'title' => 'Дешевые',
+            'page_title' => $page->meta->title,
+            'page_description'=> $page->meta->description
         ]);
     }
 
@@ -216,6 +221,7 @@ class CatalogController extends Controller
     {
         $section_id = 4;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
+	    $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
 
         if ($request->ajax()) {
             return view('components.profiles.item_list_ajax', ['profiles' => $profiles]);
@@ -225,7 +231,9 @@ class CatalogController extends Controller
             'profiles' => $profiles,
             'section_id' => $section_id,
             'heading' => 'БДСМ девушки Москвы',
-            'title' => 'БДСМ'
+            'title' => 'БДСМ',
+            'page_title' => $page->meta->title,
+            'page_description'=> $page->meta->description
         ]);
     }
 
@@ -234,6 +242,7 @@ class CatalogController extends Controller
     {
         $section_id = 5;
         $profiles = Profile::where('active', 1)->where('section', $section_id)->paginate(16);
+	    $page = Page::where('slug',Helpers::getGirlSectionUrlValue($section_id))->first();
 
         if ($request->ajax()) {
             return view('components.profiles.item_list_ajax', ['profiles' => $profiles]);
@@ -243,7 +252,9 @@ class CatalogController extends Controller
             'profiles' => $profiles,
             'section_id' => $section_id,
             'heading' => 'Частные объявления массажисток Москвы',
-            'title' => 'Массажистки'
+            'title' => 'Массажистки',
+            'page_title' => $page->meta->title,
+            'page_description'=> $page->meta->description
         ]);
     }
 
