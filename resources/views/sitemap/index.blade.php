@@ -2,15 +2,19 @@
 
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>{{ url('sitemap/articles') }}</loc>
+        <loc>{{ url('main.xml') }}</loc>
+        <lastmod>{{ $main->updated_at->toAtomString() }}</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('articles.xml') }}</loc>
         <lastmod>{{ $articles->updated_at->toAtomString() }}</lastmod>
     </sitemap>
     <sitemap>
-        <loc>{{ url('sitemap/pages') }}</loc>
+        <loc>{{ url('pages.xml') }}</loc>
         <lastmod>{{ $pages->updated_at->toAtomString() }}</lastmod>
     </sitemap>
     <sitemap>
-        <loc>{{ url('sitemap/profiles') }}</loc>
+        <loc>{{ url('profiles.xml') }}</loc>
         <lastmod>{{ $profiles->updated_at->toAtomString() }}</lastmod>
     </sitemap>
 </sitemapindex>

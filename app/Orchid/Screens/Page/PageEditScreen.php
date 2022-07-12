@@ -77,8 +77,7 @@ class PageEditScreen extends Screen {
                          ->required(),
                     Quill::make( 'page.content' )
                          ->title( 'Содержимое статьи' )
-                         ->placeholder( 'Введите содержимое статьи' )
-                         ->required(),
+                         ->placeholder( 'Введите содержимое статьи' ),
 
                     Input::make( 'page.meta.title' )
                         ->title( 'Meta-title' )

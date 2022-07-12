@@ -5,7 +5,7 @@
             <loc>{{ route('post.show', ['slug' => $article->slug]) }}</loc>
             <lastmod>{{ $article->updated_at->toAtomString() }}</lastmod>
             <changefreq>monthly</changefreq>
-            <priority>1.0</priority>
+            <priority>0.9</priority>
         </url>
     @endforeach
 </urlset>

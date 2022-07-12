@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\SitemapController;
 
 
@@ -24,11 +23,13 @@ use App\Http\Controllers\SitemapController;
 require __DIR__.'/auth.php';
 Route::get( '/',                                                [ MainController::class, 'index' ]                      )->name( 'main' );
 
+
 // SITEMAPS
-Route::get('sitemap',                                          [ SitemapController::class, 'index' ]                   )->name( 'sitemap.index' );
-Route::get('sitemap/articles',                                 [ SitemapController::class, 'articles' ]                )->name( 'sitemap.articles' );
-Route::get('sitemap/pages',                                    [ SitemapController::class, 'pages' ]                   )->name( 'sitemap.pages' );
-Route::get('sitemap/profiles',                                 [ SitemapController::class, 'profiles' ]                )->name( 'sitemap.profiles' );
+Route::get('sitemap.xml',                                       [ SitemapController::class, 'index' ]                   )->name( 'sitemap.index' );
+Route::get('main.xml',                                          [ SitemapController::class, 'main' ]                    )->name( 'sitemap.main' );
+Route::get('articles.xml',                                      [ SitemapController::class, 'articles' ]                )->name( 'sitemap.articles' );
+Route::get('pages.xml',                                         [ SitemapController::class, 'pages' ]                   )->name( 'sitemap.pages' );
+Route::get('profiles.xml',                                      [ SitemapController::class, 'profiles' ]                )->name( 'sitemap.profiles' );
 
 
 // SEARCH

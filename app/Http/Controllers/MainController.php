@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Profile;
 use App\Models\Slider;
 use App\Models\Station;
@@ -18,7 +19,7 @@ class MainController extends Controller
 
     public function index()
     {
-
+		$page = Page::where('slug', 'main')->first();
         // GET GIRLS
         $slides = Slider::where('active', '=', 1)->get()->sortBy('sort');
         $eliteGirls = Profile::where('active', '=', 1)->where('section', '=', 1)->latest('created_at')->limit(8)->get();
@@ -30,6 +31,7 @@ class MainController extends Controller
 
 
         return view('main', [
+			'page' => $page,
             'slides' => $slides,
             'eliteGirls' => $eliteGirls,
             'newGirls' => $newGirls,
@@ -37,8 +39,6 @@ class MainController extends Controller
             'topGirls' => $topGirls,
             'cheapGirls' => $cheapGirls,
             'masseusesGirls' => $masseusesGirls,
-			'title' => 'Элитные девушки и индивидуалки Москвы',
-	        'description' => 'Красивые и привлекательные девушки с радостью проведут с вами вечер или скрасят ваш досуг и увлечения'
         ]);
     }
 

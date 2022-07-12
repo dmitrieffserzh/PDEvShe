@@ -25,4 +25,9 @@ class Meta extends Model
     public function profile(){
         return $this->morphTo();
     }
+
+
+	public function station(){
+		return $this->morphTo();
+	}
 }

@@ -9,14 +9,24 @@ use Illuminate\Http\Request;
 
 class SitemapController extends Controller {
 	public function index() {
+		$main     = Page::where( 'active', 1 )->where( 'slug', 'main' )->first();
 		$articles = Post::where( 'active', 1 )->orderBy( 'updated_at', 'desc' )->first();
 		$pages    = Page::where( 'active', 1 )->orderBy( 'updated_at', 'desc' )->first();
 		$profiles = Profile::where( 'active', 1 )->orderBy( 'updated_at', 'desc' )->first();
 
 		return response()->view( 'sitemap.index', [
+			'main'     => $main,
 			'articles' => $articles,
 			'pages'    => $pages,
 			'profiles' => $profiles,
+		] )->header( 'Content-Type', 'text/xml' );
+	}
+
+	public function main() {
+		$main = Page::where( 'active', 1 )->where( 'slug', 'main' )->first();
+
+		return response()->view( 'sitemap.main', [
+			'main' => $main,
 		] )->header( 'Content-Type', 'text/xml' );
 	}
 
@@ -29,7 +39,7 @@ class SitemapController extends Controller {
 	}
 
 	public function pages() {
-		$pages = Page::where( 'active', 1 )->orderBy( 'updated_at', 'desc' )->get();
+		$pages = Page::where( 'active', 1 )->whereNot( 'slug', 'main' )->orderBy( 'updated_at', 'desc' )->get();
 
 		return response()->view( 'sitemap.pages', [
 			'pages' => $pages,

@@ -1,4 +1,8 @@
 @extends('app')
+
+@section('title', $station->meta->title ?? '')
+@section('description', $station->meta->description ?? '')
+
 @section('breadcrumbs', Diglactic\Breadcrumbs\Breadcrumbs::render('search'))
 @section('h1', $heading ?? 'Каталог девушек')
 

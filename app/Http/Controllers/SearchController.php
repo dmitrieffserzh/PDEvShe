@@ -36,6 +36,7 @@ class SearchController extends Controller {
         // TODO
         return view( 'search.search_result', [
             'heading'  => 'Девушки на станции метро ' . $station['name'],
+			'station' => $station,
             'items' => $station->profiles ?? ''
         ] );
     }

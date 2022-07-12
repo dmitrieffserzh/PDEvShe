@@ -11,6 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->string( 'name' );
             $table->string( 'slug' );
+            $table->string( 'title' );
+            $table->text( 'content' );
         } );
     }
 

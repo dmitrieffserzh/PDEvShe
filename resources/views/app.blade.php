@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="yandex-verification" content="a09165eff336551c" />
-    <title>@yield('title', $title ?? '')</title>
-    <meta name="description" content="@yield('description', $description ?? '')">
+    <meta name="google-site-verification" content="xuJLG15MIpIx67Rc8cwBB9w9BA9Nzd_YTypZaAehmqY" />
+    <title>@yield('title', $page->meta->title ?? '')</title>
+    <meta name="description" content="@yield('description', $page->meta->description ?? '')">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
