@@ -18,7 +18,6 @@
 
     @if( $page->tile ||  $page->content)
         <div class="page-content">
-            <h2>{{$page->title}}</h2>
             {!! $page->content !!}
         </div>
     @endif

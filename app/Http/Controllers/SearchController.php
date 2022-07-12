@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Profile;
 use App\Models\Station;
 use Bitrix\Landing\Error;
@@ -20,9 +21,10 @@ class SearchController extends Controller {
                 'count' => isset( $stations->profiles ) ? count( $stations->profiles ) : 0
             ] );
         }
-
+	    $page = Page::where('slug', 'search-metro')->first();
         return view( 'search.metro', [
-            'heading' => 'Поиск девушек на карте Московского метро'
+            'heading' => 'Поиск девушек на карте Московского метро',
+	        'page' => $page
         ] );
     }
 

@@ -1,4 +1,8 @@
 @extends('app')
+
+@section('title', $page->meta->title ?? '')
+@section('description', $page->meta->description ?? '')
+
 @section('breadcrumbs', Diglactic\Breadcrumbs\Breadcrumbs::render('search.metro'))
 @section('h1', $heading ?? 'Личные данные')
 

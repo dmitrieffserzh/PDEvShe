@@ -122,6 +122,7 @@ window.onload = function () {
         let timeout;
         let data = new FormData(formFilter);
         let cont = document.querySelector('.profiles-list');
+        let loadMore = document.getElementById('load-more');
 
         if (timeout) {
             clearTimeout(timeout);
@@ -133,9 +134,9 @@ window.onload = function () {
                 url: '/filter',
                 data: data,
             }).then((response) => {
+                loadMore.style.display = 'none';
                 cont.innerHTML = '';
                 cont.insertAdjacentHTML('beforeend', response.data);
-                //console.log(response);
             });
         }, 1500);
     }

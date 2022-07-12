@@ -3105,6 +3105,7 @@ window.onload = function () {
     var timeout;
     var data = new FormData(formFilter);
     var cont = document.querySelector('.profiles-list');
+    var loadMore = document.getElementById('load-more');
 
     if (timeout) {
       clearTimeout(timeout);
@@ -3116,8 +3117,9 @@ window.onload = function () {
         url: '/filter',
         data: data
       }).then(function (response) {
+        loadMore.style.display = 'none';
         cont.innerHTML = '';
-        cont.insertAdjacentHTML('beforeend', response.data); //console.log(response);
+        cont.insertAdjacentHTML('beforeend', response.data);
       });
     }, 1500);
   }
