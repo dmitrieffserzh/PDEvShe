@@ -17,7 +17,7 @@
         @endif
     </div>
 
-    @if( $station->tile ||  $station->content)
+    @if( isset($station->tile) ||  isset($station->content))
     <div class="page-content">
        <h2>{{$station->title}}</h2>
         {!! $station->content !!}

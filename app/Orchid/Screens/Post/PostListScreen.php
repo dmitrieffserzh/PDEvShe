@@ -47,6 +47,7 @@ class PostListScreen extends Screen {
 
     public function remove( Request $request ): void {
         Post::findOrFail( $request->get( 'id' ) )->delete();
+
         Toast::info( 'Статья успешно удалена' );
     }
 }

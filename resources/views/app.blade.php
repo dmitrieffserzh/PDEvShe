@@ -24,8 +24,8 @@
                 <a href="{{ route('catalog.masseuses') }}"{{ (request()->is('masseuses')) ? 'class=active' : '' }}>Массажистки</a>
             </div>
             <div class="header-top__social">
-                <a href="" class="ws"></a>
-                <a href="" class="tg"></a>
+                <a href="https://wa.clck.bar/79653977504" class="ws"></a>
+                <a href="https://t.me/+GthbEOK7k6EyMWIy" class="tg"></a>
             </div>
         </div>
     </div>
@@ -120,8 +120,8 @@
                 <a href="{{ route('post.index') }}"{{ Route::is('post.*') ? 'class=active' : '' }}>Статьи</a>
             </div>
             <div class="footer-links__social">
-                <a href="" class="ws"></a>
-                <a href="" class="tg"></a>
+                <a href="https://wa.clck.bar/79653977504" class="ws"></a>
+                <a href="https://t.me/+GthbEOK7k6EyMWIy" class="tg"></a>
             </div>
         </div>
         <div class="footer-offer">

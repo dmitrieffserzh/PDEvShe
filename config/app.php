@@ -195,6 +195,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+	    /*
+	     * External providers */
+	    Pawlox\VideoThumbnail\VideoThumbnailServiceProvider::class,
     ],
 
     /*
@@ -210,7 +214,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'Helpers'   => App\Helpers::class
+        'Helpers'   => App\Helpers::class,
+        'VideoThumbnail' => Pawlox\VideoThumbnail\Facade\VideoThumbnail::class
     ])->toArray(),
 
 ];

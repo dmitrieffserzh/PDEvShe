@@ -82,15 +82,11 @@ class PlatformScreen extends Screen
                 Layout::view('platform.testimonials-block'),
             ]),
 
-            Layout::rows([
-
-            ])->title('dsdsds'),
-
             GirlListLayout::class,
 
 
 
-            Layout::view('platform::partials.welcome'),
+            //Layout::view('platform::partials.welcome'),
         ];
     }
 }

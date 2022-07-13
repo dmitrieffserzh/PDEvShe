@@ -448,7 +448,7 @@ if (inputFile) {
                 url: '/profile/upload',
                 data: data,
                 headers: {
-                    "Content-Type": "multipart/form-data; boundary=something",
+                    "Content-Type": "multipart/form-data;",
                 }
             }).then((response) => {
                 if (inputFile.classList.contains('man'))

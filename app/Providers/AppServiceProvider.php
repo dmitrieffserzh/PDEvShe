@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Profile;
 use App\Observers\ProfileObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Profile::observe(ProfileObserver::class);
+        //URL::forceScheme('https');
     }
 }

@@ -6,37 +6,25 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Listener\UploadListener;
+use Orchid\Platform\Events\UploadFileEvent;
 
-class EventServiceProvider extends ServiceProvider
-{
-    /**
-     * The event to listener mappings for the application.
-     *
-     * @var array<class-string, array<int, class-string>>
-     */
-    protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
-        ],
-    ];
+class EventServiceProvider extends ServiceProvider {
 
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+	protected $listen = [
+		Registered::class      => [
+			SendEmailVerificationNotification::class,
+		],
+//		UploadFileEvent::class => [
+//			UploadListener::class,
+//		],
+	];
 
-    /**
-     * Determine if events and listeners should be automatically discovered.
-     *
-     * @return bool
-     */
-    public function shouldDiscoverEvents()
-    {
-        return false;
-    }
+	public function boot() {
+		//
+	}
+
+	public function shouldDiscoverEvents() {
+		return false;
+	}
 }
